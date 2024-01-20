@@ -1,0 +1,326 @@
+Namespace(batch_size=512, lr=0.05, lr_decay_rate=0.1, p_threshold=0.5, T=0.5, num_epochs=100, rho_range='0.2,0.6', tau=0.99, pretrain_ep=10, warmup_ep=50, low_conf_del=False, threshold=0.9, start_expand=250, debias_output=0.8, debias_pl=0.8, bias_m=0.9999, cosine=False, noise_type='clean', noise_path=None, num_class=10, data_path=None, dataset='cifar10', is_human=False, noise_mode='sym', noise_rate=0.5, rho_start=0.2, rho_end=0.6)
+| Building net
+save noisy labels to ./data/cifar-10/noise_file/clean_label_591436.json ...
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  0/100] Iter[  1/ 98]	 CE-loss: 4.8914  Penalty-loss: -4.4323  All-loss: 4.8914
+cifar10:clean_label | Epoch [  0/100] Iter[  1/ 98]	 Net1 loss: 1.38  Net2 loss: 1.47
+| Test Epoch #0	 Acc Net1: 10.68%, Acc Net2: 10.02% Acc Mean: 40.43%
+
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  1/100] Iter[  1/ 98]	 CE-loss: 9.3316  Penalty-loss: -2.0375  All-loss: 9.3316
+cifar10:clean_label | Epoch [  1/100] Iter[  1/ 98]	 Net1 loss: 1.23  Net2 loss: 1.38
+| Test Epoch #1	 Acc Net1: 46.60%, Acc Net2: 40.95% Acc Mean: 46.99%
+
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  2/100] Iter[  1/ 98]	 CE-loss: 8.4603  Penalty-loss: -1.9198  All-loss: 8.4603
+cifar10:clean_label | Epoch [  2/100] Iter[  1/ 98]	 Net1 loss: 1.18  Net2 loss: 1.25
+| Test Epoch #2	 Acc Net1: 47.76%, Acc Net2: 45.25% Acc Mean: 48.78%
+
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  3/100] Iter[  1/ 98]	 CE-loss: 8.4527  Penalty-loss: -1.8275  All-loss: 8.4527
+cifar10:clean_label | Epoch [  3/100] Iter[  1/ 98]	 Net1 loss: 1.16  Net2 loss: 1.28
+| Test Epoch #3	 Acc Net1: 49.08%, Acc Net2: 47.78% Acc Mean: 50.51%
+
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  4/100] Iter[  1/ 98]	 CE-loss: 8.1449  Penalty-loss: -1.7104  All-loss: 8.1449
+cifar10:clean_label | Epoch [  4/100] Iter[  1/ 98]	 Net1 loss: 1.19  Net2 loss: 1.26
+| Test Epoch #4	 Acc Net1: 50.79%, Acc Net2: 48.47% Acc Mean: 51.28%
+
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  5/100] Iter[  1/ 98]	 CE-loss: 8.3026  Penalty-loss: -1.7949  All-loss: 8.3026
+cifar10:clean_label | Epoch [  5/100] Iter[  1/ 98]	 Net1 loss: 1.11  Net2 loss: 1.25
+| Test Epoch #5	 Acc Net1: 51.87%, Acc Net2: 49.74% Acc Mean: 52.81%
+
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  6/100] Iter[  1/ 98]	 CE-loss: 8.0752  Penalty-loss: -1.9296  All-loss: 8.0752
+cifar10:clean_label | Epoch [  6/100] Iter[  1/ 98]	 Net1 loss: 1.04  Net2 loss: 1.16
+| Test Epoch #6	 Acc Net1: 53.27%, Acc Net2: 51.54% Acc Mean: 54.07%
+
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  7/100] Iter[  1/ 98]	 CE-loss: 7.6215  Penalty-loss: -1.8444  All-loss: 7.6215
+cifar10:clean_label | Epoch [  7/100] Iter[  1/ 98]	 Net1 loss: 1.09  Net2 loss: 1.17
+| Test Epoch #7	 Acc Net1: 54.29%, Acc Net2: 51.99% Acc Mean: 55.18%
+
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  8/100] Iter[  1/ 98]	 CE-loss: 7.6305  Penalty-loss: -1.8904  All-loss: 7.6305
+cifar10:clean_label | Epoch [  8/100] Iter[  1/ 98]	 Net1 loss: 1.03  Net2 loss: 1.12
+| Test Epoch #8	 Acc Net1: 55.93%, Acc Net2: 53.50% Acc Mean: 56.85%
+
+Warmup Net1 and Net2
+cifar10:clean_label | Epoch [  9/100] Iter[  1/ 98]	 CE-loss: 7.4686  Penalty-loss: -1.7890  All-loss: 7.4686
+cifar10:clean_label | Epoch [  9/100] Iter[  1/ 98]	 Net1 loss: 1.00  Net2 loss: 1.05
+| Test Epoch #9	 Acc Net1: 57.20%, Acc Net2: 53.95% Acc Mean: 58.03%
+
+cifar10:clean_label | Epoch [ 10/100] Iter[  1/ 98]	 Net1 loss: 0.18  Net2 loss: 0.22
+| Test Epoch #10	 Acc Net1: 56.32%, Acc Net2: 54.70% Acc Mean: 57.58%
+
+cifar10:clean_label | Epoch [ 11/100] Iter[  1/ 98]	 Net1 loss: 0.14  Net2 loss: 0.12
+| Test Epoch #11	 Acc Net1: 56.90%, Acc Net2: 54.65% Acc Mean: 57.43%
+
+cifar10:clean_label | Epoch [ 12/100] Iter[  1/ 98]	 Net1 loss: 0.07  Net2 loss: 0.09
+| Test Epoch #12	 Acc Net1: 55.68%, Acc Net2: 54.12% Acc Mean: 56.55%
+
+cifar10:clean_label | Epoch [ 13/100] Iter[  1/ 98]	 Net1 loss: 0.11  Net2 loss: 0.13
+| Test Epoch #13	 Acc Net1: 55.49%, Acc Net2: 56.45% Acc Mean: 58.23%
+
+cifar10:clean_label | Epoch [ 14/100] Iter[  1/ 98]	 Net1 loss: 0.14  Net2 loss: 0.12
+| Test Epoch #14	 Acc Net1: 56.43%, Acc Net2: 54.49% Acc Mean: 58.08%
+
+cifar10:clean_label | Epoch [ 15/100] Iter[  1/ 98]	 Net1 loss: 0.13  Net2 loss: 0.12
+| Test Epoch #15	 Acc Net1: 57.88%, Acc Net2: 56.56% Acc Mean: 59.36%
+
+cifar10:clean_label | Epoch [ 16/100] Iter[  1/ 98]	 Net1 loss: 0.12  Net2 loss: 0.21
+| Test Epoch #16	 Acc Net1: 55.41%, Acc Net2: 56.21% Acc Mean: 57.52%
+
+cifar10:clean_label | Epoch [ 17/100] Iter[  1/ 98]	 Net1 loss: 0.16  Net2 loss: 0.19
+| Test Epoch #17	 Acc Net1: 57.26%, Acc Net2: 54.03% Acc Mean: 57.60%
+
+cifar10:clean_label | Epoch [ 18/100] Iter[  1/ 98]	 Net1 loss: 0.11  Net2 loss: 0.14
+| Test Epoch #18	 Acc Net1: 59.56%, Acc Net2: 57.79% Acc Mean: 60.97%
+
+cifar10:clean_label | Epoch [ 19/100] Iter[  1/ 98]	 Net1 loss: 0.27  Net2 loss: 0.18
+| Test Epoch #19	 Acc Net1: 59.27%, Acc Net2: 59.63% Acc Mean: 61.72%
+
+cifar10:clean_label | Epoch [ 20/100] Iter[  1/ 98]	 Net1 loss: 0.16  Net2 loss: 0.18
+| Test Epoch #20	 Acc Net1: 58.69%, Acc Net2: 59.68% Acc Mean: 61.00%
+
+cifar10:clean_label | Epoch [ 21/100] Iter[  1/ 98]	 Net1 loss: 0.16  Net2 loss: 0.15
+| Test Epoch #21	 Acc Net1: 60.51%, Acc Net2: 61.06% Acc Mean: 62.60%
+
+cifar10:clean_label | Epoch [ 22/100] Iter[  1/ 98]	 Net1 loss: 0.21  Net2 loss: 0.16
+| Test Epoch #22	 Acc Net1: 61.15%, Acc Net2: 61.43% Acc Mean: 63.05%
+
+cifar10:clean_label | Epoch [ 23/100] Iter[  1/ 98]	 Net1 loss: 0.16  Net2 loss: 0.19
+| Test Epoch #23	 Acc Net1: 63.62%, Acc Net2: 61.76% Acc Mean: 64.28%
+
+cifar10:clean_label | Epoch [ 24/100] Iter[  1/ 98]	 Net1 loss: 0.18  Net2 loss: 0.17
+| Test Epoch #24	 Acc Net1: 63.07%, Acc Net2: 61.67% Acc Mean: 64.28%
+
+cifar10:clean_label | Epoch [ 25/100] Iter[  1/ 98]	 Net1 loss: 0.19  Net2 loss: 0.23
+| Test Epoch #25	 Acc Net1: 65.38%, Acc Net2: 64.48% Acc Mean: 66.91%
+
+cifar10:clean_label | Epoch [ 26/100] Iter[  1/ 98]	 Net1 loss: 0.12  Net2 loss: 0.18
+| Test Epoch #26	 Acc Net1: 65.63%, Acc Net2: 64.96% Acc Mean: 67.14%
+
+cifar10:clean_label | Epoch [ 27/100] Iter[  1/ 98]	 Net1 loss: 0.16  Net2 loss: 0.16
+| Test Epoch #27	 Acc Net1: 66.15%, Acc Net2: 64.48% Acc Mean: 67.35%
+
+cifar10:clean_label | Epoch [ 28/100] Iter[  1/ 98]	 Net1 loss: 0.23  Net2 loss: 0.24
+| Test Epoch #28	 Acc Net1: 66.75%, Acc Net2: 65.42% Acc Mean: 67.89%
+
+cifar10:clean_label | Epoch [ 29/100] Iter[  1/ 98]	 Net1 loss: 0.19  Net2 loss: 0.20
+| Test Epoch #29	 Acc Net1: 69.50%, Acc Net2: 67.41% Acc Mean: 70.07%
+
+cifar10:clean_label | Epoch [ 30/100] Iter[  1/ 98]	 Net1 loss: 0.21  Net2 loss: 0.23
+| Test Epoch #30	 Acc Net1: 69.74%, Acc Net2: 68.35% Acc Mean: 70.58%
+
+cifar10:clean_label | Epoch [ 31/100] Iter[  1/ 98]	 Net1 loss: 0.18  Net2 loss: 0.15
+| Test Epoch #31	 Acc Net1: 70.52%, Acc Net2: 69.39% Acc Mean: 71.95%
+
+cifar10:clean_label | Epoch [ 32/100] Iter[  1/ 98]	 Net1 loss: 0.20  Net2 loss: 0.24
+| Test Epoch #32	 Acc Net1: 71.18%, Acc Net2: 67.31% Acc Mean: 71.21%
+
+cifar10:clean_label | Epoch [ 33/100] Iter[  1/ 98]	 Net1 loss: 0.18  Net2 loss: 0.21
+| Test Epoch #33	 Acc Net1: 71.85%, Acc Net2: 70.67% Acc Mean: 73.19%
+
+cifar10:clean_label | Epoch [ 34/100] Iter[  1/ 98]	 Net1 loss: 0.20  Net2 loss: 0.24
+| Test Epoch #34	 Acc Net1: 72.09%, Acc Net2: 70.32% Acc Mean: 73.13%
+
+cifar10:clean_label | Epoch [ 35/100] Iter[  1/ 98]	 Net1 loss: 0.24  Net2 loss: 0.29
+| Test Epoch #35	 Acc Net1: 73.77%, Acc Net2: 70.40% Acc Mean: 73.28%
+
+cifar10:clean_label | Epoch [ 36/100] Iter[  1/ 98]	 Net1 loss: 0.21  Net2 loss: 0.23
+| Test Epoch #36	 Acc Net1: 73.58%, Acc Net2: 70.57% Acc Mean: 74.56%
+
+cifar10:clean_label | Epoch [ 37/100] Iter[  1/ 98]	 Net1 loss: 0.24  Net2 loss: 0.23
+| Test Epoch #37	 Acc Net1: 74.41%, Acc Net2: 72.29% Acc Mean: 74.88%
+
+cifar10:clean_label | Epoch [ 38/100] Iter[  1/ 98]	 Net1 loss: 0.24  Net2 loss: 0.30
+| Test Epoch #38	 Acc Net1: 75.17%, Acc Net2: 73.33% Acc Mean: 76.15%
+
+cifar10:clean_label | Epoch [ 39/100] Iter[  1/ 98]	 Net1 loss: 0.27  Net2 loss: 0.25
+| Test Epoch #39	 Acc Net1: 75.68%, Acc Net2: 72.11% Acc Mean: 75.91%
+
+cifar10:clean_label | Epoch [ 40/100] Iter[  1/ 98]	 Net1 loss: 0.22  Net2 loss: 0.21
+| Test Epoch #40	 Acc Net1: 74.51%, Acc Net2: 73.89% Acc Mean: 76.68%
+
+cifar10:clean_label | Epoch [ 41/100] Iter[  1/ 98]	 Net1 loss: 0.26  Net2 loss: 0.32
+| Test Epoch #41	 Acc Net1: 75.80%, Acc Net2: 74.14% Acc Mean: 77.93%
+
+cifar10:clean_label | Epoch [ 42/100] Iter[  1/ 98]	 Net1 loss: 0.27  Net2 loss: 0.28
+| Test Epoch #42	 Acc Net1: 76.15%, Acc Net2: 75.72% Acc Mean: 78.00%
+
+cifar10:clean_label | Epoch [ 43/100] Iter[  1/ 98]	 Net1 loss: 0.31  Net2 loss: 0.29
+| Test Epoch #43	 Acc Net1: 77.20%, Acc Net2: 77.09% Acc Mean: 78.98%
+
+cifar10:clean_label | Epoch [ 44/100] Iter[  1/ 98]	 Net1 loss: 0.33  Net2 loss: 0.34
+| Test Epoch #44	 Acc Net1: 76.60%, Acc Net2: 77.56% Acc Mean: 79.47%
+
+cifar10:clean_label | Epoch [ 45/100] Iter[  1/ 98]	 Net1 loss: 0.30  Net2 loss: 0.36
+| Test Epoch #45	 Acc Net1: 75.19%, Acc Net2: 77.47% Acc Mean: 78.46%
+
+cifar10:clean_label | Epoch [ 46/100] Iter[  1/ 98]	 Net1 loss: 0.32  Net2 loss: 0.36
+| Test Epoch #46	 Acc Net1: 77.16%, Acc Net2: 76.56% Acc Mean: 78.73%
+
+cifar10:clean_label | Epoch [ 47/100] Iter[  1/ 98]	 Net1 loss: 0.37  Net2 loss: 0.35
+| Test Epoch #47	 Acc Net1: 77.72%, Acc Net2: 76.07% Acc Mean: 79.40%
+
+cifar10:clean_label | Epoch [ 48/100] Iter[  1/ 98]	 Net1 loss: 0.32  Net2 loss: 0.38
+| Test Epoch #48	 Acc Net1: 76.80%, Acc Net2: 77.50% Acc Mean: 79.05%
+
+cifar10:clean_label | Epoch [ 49/100] Iter[  1/ 98]	 Net1 loss: 0.33  Net2 loss: 0.34
+| Test Epoch #49	 Acc Net1: 76.87%, Acc Net2: 76.06% Acc Mean: 79.15%
+
+cifar10:clean_label | Epoch [ 50/100] Iter[  1/ 98]	 Net1 loss: 0.40  Net2 loss: 0.40
+| Test Epoch #50	 Acc Net1: 79.05%, Acc Net2: 78.19% Acc Mean: 80.67%
+
+cifar10:clean_label | Epoch [ 51/100] Iter[  1/ 98]	 Net1 loss: 0.42  Net2 loss: 0.38
+| Test Epoch #51	 Acc Net1: 78.21%, Acc Net2: 76.60% Acc Mean: 79.54%
+
+cifar10:clean_label | Epoch [ 52/100] Iter[  1/ 98]	 Net1 loss: 0.41  Net2 loss: 0.45
+| Test Epoch #52	 Acc Net1: 78.86%, Acc Net2: 79.87% Acc Mean: 81.85%
+
+cifar10:clean_label | Epoch [ 53/100] Iter[  1/ 98]	 Net1 loss: 0.36  Net2 loss: 0.34
+| Test Epoch #53	 Acc Net1: 79.34%, Acc Net2: 78.76% Acc Mean: 81.50%
+
+cifar10:clean_label | Epoch [ 54/100] Iter[  1/ 98]	 Net1 loss: 0.42  Net2 loss: 0.35
+| Test Epoch #54	 Acc Net1: 74.93%, Acc Net2: 76.18% Acc Mean: 79.17%
+
+cifar10:clean_label | Epoch [ 55/100] Iter[  1/ 98]	 Net1 loss: 0.33  Net2 loss: 0.37
+| Test Epoch #55	 Acc Net1: 78.13%, Acc Net2: 79.67% Acc Mean: 81.46%
+
+cifar10:clean_label | Epoch [ 56/100] Iter[  1/ 98]	 Net1 loss: 0.26  Net2 loss: 0.35
+| Test Epoch #56	 Acc Net1: 78.00%, Acc Net2: 77.35% Acc Mean: 80.51%
+
+cifar10:clean_label | Epoch [ 57/100] Iter[  1/ 98]	 Net1 loss: 0.35  Net2 loss: 0.41
+| Test Epoch #57	 Acc Net1: 78.77%, Acc Net2: 78.35% Acc Mean: 81.29%
+
+cifar10:clean_label | Epoch [ 58/100] Iter[  1/ 98]	 Net1 loss: 0.32  Net2 loss: 0.31
+| Test Epoch #58	 Acc Net1: 79.03%, Acc Net2: 78.08% Acc Mean: 80.65%
+
+cifar10:clean_label | Epoch [ 59/100] Iter[  1/ 98]	 Net1 loss: 0.25  Net2 loss: 0.27
+| Test Epoch #59	 Acc Net1: 79.40%, Acc Net2: 79.65% Acc Mean: 81.67%
+
+cifar10:clean_label | Epoch [ 60/100] Iter[  1/ 98]	 Net1 loss: 0.33  Net2 loss: 0.30
+| Test Epoch #60	 Acc Net1: 78.60%, Acc Net2: 76.14% Acc Mean: 81.12%
+
+cifar10:clean_label | Epoch [ 61/100] Iter[  1/ 98]	 Net1 loss: 0.28  Net2 loss: 0.31
+| Test Epoch #61	 Acc Net1: 79.75%, Acc Net2: 79.19% Acc Mean: 82.20%
+
+cifar10:clean_label | Epoch [ 62/100] Iter[  1/ 98]	 Net1 loss: 0.29  Net2 loss: 0.28
+| Test Epoch #62	 Acc Net1: 79.99%, Acc Net2: 78.92% Acc Mean: 82.28%
+
+cifar10:clean_label | Epoch [ 63/100] Iter[  1/ 98]	 Net1 loss: 0.19  Net2 loss: 0.27
+| Test Epoch #63	 Acc Net1: 77.75%, Acc Net2: 79.23% Acc Mean: 81.65%
+
+cifar10:clean_label | Epoch [ 64/100] Iter[  1/ 98]	 Net1 loss: 0.28  Net2 loss: 0.29
+| Test Epoch #64	 Acc Net1: 77.91%, Acc Net2: 78.74% Acc Mean: 81.38%
+
+cifar10:clean_label | Epoch [ 65/100] Iter[  1/ 98]	 Net1 loss: 0.24  Net2 loss: 0.21
+| Test Epoch #65	 Acc Net1: 78.96%, Acc Net2: 78.36% Acc Mean: 81.97%
+
+cifar10:clean_label | Epoch [ 66/100] Iter[  1/ 98]	 Net1 loss: 0.19  Net2 loss: 0.23
+| Test Epoch #66	 Acc Net1: 76.73%, Acc Net2: 79.30% Acc Mean: 81.00%
+
+cifar10:clean_label | Epoch [ 67/100] Iter[  1/ 98]	 Net1 loss: 0.22  Net2 loss: 0.21
+| Test Epoch #67	 Acc Net1: 75.76%, Acc Net2: 75.69% Acc Mean: 79.44%
+
+cifar10:clean_label | Epoch [ 68/100] Iter[  1/ 98]	 Net1 loss: 0.20  Net2 loss: 0.20
+| Test Epoch #68	 Acc Net1: 77.26%, Acc Net2: 78.20% Acc Mean: 81.45%
+
+cifar10:clean_label | Epoch [ 69/100] Iter[  1/ 98]	 Net1 loss: 0.17  Net2 loss: 0.19
+| Test Epoch #69	 Acc Net1: 78.81%, Acc Net2: 78.32% Acc Mean: 81.50%
+
+cifar10:clean_label | Epoch [ 70/100] Iter[  1/ 98]	 Net1 loss: 0.16  Net2 loss: 0.16
+| Test Epoch #70	 Acc Net1: 79.16%, Acc Net2: 79.68% Acc Mean: 82.63%
+
+cifar10:clean_label | Epoch [ 71/100] Iter[  1/ 98]	 Net1 loss: 0.17  Net2 loss: 0.18
+| Test Epoch #71	 Acc Net1: 78.43%, Acc Net2: 78.78% Acc Mean: 81.54%
+
+cifar10:clean_label | Epoch [ 72/100] Iter[  1/ 98]	 Net1 loss: 0.16  Net2 loss: 0.13
+| Test Epoch #72	 Acc Net1: 78.29%, Acc Net2: 78.61% Acc Mean: 82.02%
+
+cifar10:clean_label | Epoch [ 73/100] Iter[  1/ 98]	 Net1 loss: 0.13  Net2 loss: 0.15
+| Test Epoch #73	 Acc Net1: 78.55%, Acc Net2: 78.31% Acc Mean: 81.85%
+
+cifar10:clean_label | Epoch [ 74/100] Iter[  1/ 98]	 Net1 loss: 0.15  Net2 loss: 0.15
+| Test Epoch #74	 Acc Net1: 77.80%, Acc Net2: 78.18% Acc Mean: 81.56%
+
+cifar10:clean_label | Epoch [ 75/100] Iter[  1/ 98]	 Net1 loss: 0.19  Net2 loss: 0.15
+| Test Epoch #75	 Acc Net1: 78.22%, Acc Net2: 76.52% Acc Mean: 81.50%
+
+cifar10:clean_label | Epoch [ 76/100] Iter[  1/ 98]	 Net1 loss: 0.16  Net2 loss: 0.15
+| Test Epoch #76	 Acc Net1: 79.20%, Acc Net2: 78.12% Acc Mean: 82.33%
+
+cifar10:clean_label | Epoch [ 77/100] Iter[  1/ 98]	 Net1 loss: 0.12  Net2 loss: 0.15
+| Test Epoch #77	 Acc Net1: 78.23%, Acc Net2: 78.67% Acc Mean: 81.69%
+
+cifar10:clean_label | Epoch [ 78/100] Iter[  1/ 98]	 Net1 loss: 0.12  Net2 loss: 0.13
+| Test Epoch #78	 Acc Net1: 76.73%, Acc Net2: 78.04% Acc Mean: 81.25%
+
+cifar10:clean_label | Epoch [ 79/100] Iter[  1/ 98]	 Net1 loss: 0.10  Net2 loss: 0.15
+| Test Epoch #79	 Acc Net1: 77.91%, Acc Net2: 77.14% Acc Mean: 81.14%
+
+cifar10:clean_label | Epoch [ 80/100] Iter[  1/ 98]	 Net1 loss: 0.15  Net2 loss: 0.12
+| Test Epoch #80	 Acc Net1: 78.76%, Acc Net2: 78.22% Acc Mean: 82.10%
+
+cifar10:clean_label | Epoch [ 81/100] Iter[  1/ 98]	 Net1 loss: 0.07  Net2 loss: 0.09
+| Test Epoch #81	 Acc Net1: 78.20%, Acc Net2: 78.84% Acc Mean: 82.22%
+
+cifar10:clean_label | Epoch [ 82/100] Iter[  1/ 98]	 Net1 loss: 0.08  Net2 loss: 0.10
+| Test Epoch #82	 Acc Net1: 75.97%, Acc Net2: 78.80% Acc Mean: 81.52%
+
+cifar10:clean_label | Epoch [ 83/100] Iter[  1/ 98]	 Net1 loss: 0.09  Net2 loss: 0.12
+| Test Epoch #83	 Acc Net1: 78.61%, Acc Net2: 77.54% Acc Mean: 81.65%
+
+cifar10:clean_label | Epoch [ 84/100] Iter[  1/ 98]	 Net1 loss: 0.06  Net2 loss: 0.07
+| Test Epoch #84	 Acc Net1: 77.87%, Acc Net2: 78.27% Acc Mean: 82.21%
+
+cifar10:clean_label | Epoch [ 85/100] Iter[  1/ 98]	 Net1 loss: 0.09  Net2 loss: 0.08
+| Test Epoch #85	 Acc Net1: 77.50%, Acc Net2: 77.58% Acc Mean: 81.25%
+
+cifar10:clean_label | Epoch [ 86/100] Iter[  1/ 98]	 Net1 loss: 0.10  Net2 loss: 0.12
+| Test Epoch #86	 Acc Net1: 77.95%, Acc Net2: 78.23% Acc Mean: 81.91%
+
+cifar10:clean_label | Epoch [ 87/100] Iter[  1/ 98]	 Net1 loss: 0.07  Net2 loss: 0.07
+| Test Epoch #87	 Acc Net1: 77.44%, Acc Net2: 78.53% Acc Mean: 81.72%
+
+cifar10:clean_label | Epoch [ 88/100] Iter[  1/ 98]	 Net1 loss: 0.13  Net2 loss: 0.08
+| Test Epoch #88	 Acc Net1: 78.44%, Acc Net2: 78.67% Acc Mean: 81.64%
+
+cifar10:clean_label | Epoch [ 89/100] Iter[  1/ 98]	 Net1 loss: 0.08  Net2 loss: 0.08
+| Test Epoch #89	 Acc Net1: 78.16%, Acc Net2: 79.27% Acc Mean: 82.42%
+
+cifar10:clean_label | Epoch [ 90/100] Iter[  1/ 98]	 Net1 loss: 0.06  Net2 loss: 0.06
+| Test Epoch #90	 Acc Net1: 78.58%, Acc Net2: 76.95% Acc Mean: 81.94%
+
+cifar10:clean_label | Epoch [ 91/100] Iter[  1/ 98]	 Net1 loss: 0.05  Net2 loss: 0.08
+| Test Epoch #91	 Acc Net1: 78.75%, Acc Net2: 77.57% Acc Mean: 82.30%
+
+cifar10:clean_label | Epoch [ 92/100] Iter[  1/ 98]	 Net1 loss: 0.05  Net2 loss: 0.04
+| Test Epoch #92	 Acc Net1: 78.19%, Acc Net2: 78.32% Acc Mean: 82.02%
+
+cifar10:clean_label | Epoch [ 93/100] Iter[  1/ 98]	 Net1 loss: 0.04  Net2 loss: 0.05
+| Test Epoch #93	 Acc Net1: 78.97%, Acc Net2: 78.08% Acc Mean: 82.33%
+
+cifar10:clean_label | Epoch [ 94/100] Iter[  1/ 98]	 Net1 loss: 0.03  Net2 loss: 0.07
+| Test Epoch #94	 Acc Net1: 78.33%, Acc Net2: 77.87% Acc Mean: 82.17%
+
+cifar10:clean_label | Epoch [ 95/100] Iter[  1/ 98]	 Net1 loss: 0.05  Net2 loss: 0.04
+| Test Epoch #95	 Acc Net1: 78.87%, Acc Net2: 78.64% Acc Mean: 82.31%
+
+cifar10:clean_label | Epoch [ 96/100] Iter[  1/ 98]	 Net1 loss: 0.04  Net2 loss: 0.04
+| Test Epoch #96	 Acc Net1: 79.19%, Acc Net2: 78.19% Acc Mean: 82.46%
+
+cifar10:clean_label | Epoch [ 97/100] Iter[  1/ 98]	 Net1 loss: 0.02  Net2 loss: 0.03
+| Test Epoch #97	 Acc Net1: 79.21%, Acc Net2: 78.47% Acc Mean: 82.32%
+
+cifar10:clean_label | Epoch [ 98/100] Iter[  1/ 98]	 Net1 loss: 0.06  Net2 loss: 0.04
+| Test Epoch #98	 Acc Net1: 79.41%, Acc Net2: 79.12% Acc Mean: 82.83%
+
+cifar10:clean_label | Epoch [ 99/100] Iter[  1/ 98]	 Net1 loss: 0.03  Net2 loss: 0.04
+| Test Epoch #99	 Acc Net1: 78.70%, Acc Net2: 79.00% Acc Mean: 82.66%
+
+cifar10:clean_label | Epoch [100/100] Iter[  1/ 98]	 Net1 loss: 0.04  Net2 loss: 0.04
+| Test Epoch #100	 Acc Net1: 79.28%, Acc Net2: 78.84% Acc Mean: 82.66%
+

@@ -1,0 +1,45 @@
+
+
+FORMULE ETBALIE A AMELIORER : log(MSE) -2*std
+
+
+MSE = (Ŷ - Y ) **2
+
+MSE = (WX - Y ) **2
+
+(WX)**2 - WXY + Y**2 - YWX
+
+
+
+Ŷ = WX
+
+
+on a quoi ?
+durant l'entraineemnt on peut estimer les valeurs de Ŷi avec plusieurs entrainement
+
+On peut donc avoir une distribution de predictions . en determeinant une gaussienne on a mu et sigma et la MSE associée
+
+pour faire de lactive learning il faudrait determiner la loss la plus elevée avec une sigma faible
+
+sqrt(mean(MSE_i/sigma))
+
+il faut donc conserver les predicitons a chaque epoque
+
+tester 
+
+
+
+plus la MSE des prediciton est elevé plus lecart entre la prediciton et la valeur labelisé est importante (donc grande erreur)
+cependant si lecart entre les preidciton de cettte donnée est petite, plus le modele predit souvent la meme chose donc la valeur predite est meilleures que le label
+
+en faisant le rapport MSE/std on peut selectionner les données qui ont le plus derreur de labelisation
+
+ça peut faire gagner des competition si cest amelioré 
+
+valable uniuqement en ML pour le moment pas de DL
+
+donc si utilisation de modeles de machine learning (RF, DT, XGBOOST, etc.) ça marche
+
+methode a generaliser en DL
+
+FORMULE ETBALIE A AMELIORER : log(MSE) -2*std

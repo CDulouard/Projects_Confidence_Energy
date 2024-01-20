@@ -1,0 +1,61 @@
+premiere constatations:
+
+doctr ne fourni pas des modeles avec d'autres caractère que le latin
+les modeles de doctr ne sont pas entrainés sur les datasets classiques de benchmark
+clip permet d'obtenir de meilleurs resultats en presence du bon label
+
+premieres deductions:
+il faudrait a terme differents modeles pour chaque caligraphie (arabe, russe, chinois, japonais)
+il faudrait a terme finetuner le modele clip sur des données corrigées avec differentes propositions de textes (pour desambiguiser)
+
+
+premieres questions:
+quelle langue faire en premier apres le latin pour obtenir le maximum de clients ?
+
+
+premieres choses a tester:
+determiner les entropy de predictions de chaque caractère dans le but de proposer a clip les differentes combinaisons de possibilités
+
+
+ce que l'on a:
+- pour le moment: on a pas tout les modeles de doctr entrainées
+	* il faut donc faire avec les modeles a disposition
+
+vaut il mieux prendre le meilleur modele et determiner les differentes possibilités d'output et le proposer a clip ?
+
+dans notre cas on va bientot creer l'API:
+on aura pas directement de gros clients, ce qui fait qu'on aura potentiellement de petits qui utilisent gratuitement l'API
+ça nous permettra d'avoir une retention de données pour finetuner les modeles
+
+
+il faut donc avoir les meilleures performances pour les particuliers
+et etre en capacité de corriger les données en temps reel
+parce que si cest en instantanné on ne peut pas corriger a la main les données directement
+
+- il faut a la fois ameliorer la segmentation et la recognition des données
+
+la premiere version doit donc se focaliser sur le meilleur modele de doctr a disposition, avec les meilleures performances
+
+GLOBAL ROADMAP
+
+Valpha:
+- contruction de l'api
+- construction de l'architecture
+- construction du premier docker basé sur tensorflow avec les meilleurs modeles (pas de modification du code existant pour cette premiere version)
+
+v1:
+
+TO DO:
+0- tester les bonnes performances sur funsd avec les modeles
+1-
+tester le clip sur les predicitons de liste_crnn_mobilenet_v3_small et liste_master
+faire une prediction de clip avec une proposition des deux labels et capturer dans une liste la prediciton et la target
+implementer la soolution pour determiner le % exact et partial comme celui de doctr
+pour       crnn_mobilenet_v3_small: 1.56027  (Exact: 87.12% | Partial: 87.85%)
+pour                        master: 0.213511 (Exact: 87.67% | Partial: 88.46%)
+pour                  sar_resnet31: 0.222337 (Exact: 87.97% | Partial: 88.80%)
+
+verifier qu'on a mieux avec clip
+
+2-/ etudier l'active learning paper sur la segmentation et en regarder d'autres en lien (voir la barre des lien sauvegardés)
+

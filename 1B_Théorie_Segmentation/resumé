@@ -1,0 +1,23 @@
+probleme rencontré sur les metrique actuelles d'object detection car avec label
+
+metriques pistes:
+C1 = p*ln(p) + (1-p)*ln(1-p) avec p>ths
+c2 = ln(p/(1-p)) avec p>ths
+c3 = p*ln(p/(1-p) avec p>ths
+c4 = ln((p-ths)/(1-ths)) ou  ln((ths-p)/(p)) a ths fixé
+c5 = pln((p-ths)/(1-ths)) + (1-p)ln((p-ths)/(p)) a ths fixé
+c6 = ln(p(p-ths)/(1-ths)(p-ths)) = ln(p/(1-ths)) si p>ths ou ln((1-ths)/(p)) 
+c7 = un truc hybride qui permet davoir en ratio 1-ths ou ths comme ln(p/(1-ths)) ou ln(p/ths) probelem car le denominateur est constant
+c8 = ln(p/(1-p))
+c9 = mean(p) p>ths ?
+c10= prod(p)^(1/n) p>ths ?
+c11= plog(p) + (1-p)log(1-p) p>ths ?
+c12= mean_sur_ths(mean_sur_pixels>ths(plog(p)+(1-p)log(1-p)))                                 # optimisable en O(n)
+c13= mean_sur_ths(mean_surpixle>ths(p*log(p/map(p))+(1-p)*log((1-p)/(1-max(p)))))             # optimisable en O(n)
+c14= mean_sur_ths(mean_sur_pixel>ths( plog((p-ths)/(1-ths)) ou (1-p)*log(((ths-p)/(ths)))))   # optimisable en O(n)
+c15= mean_sur_ths(mean_sur_pixel>ths( log((p-ths)/(1-ths)) ou log(((ths-p)/(ths)))))          # optimisable en O(n)
+c15= mean_sur_ths(mean_sur_pixel>ths( log((p_max-p)/(1-p_max)) ou log(((pmax-p)/(pmax)))))    # optimisable en O(n)
+
+TO DO:
+determiner la meilleure metrique pour le plot de en Y (IoU ou Dice_loss ?)
+

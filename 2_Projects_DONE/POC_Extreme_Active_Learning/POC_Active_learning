@@ -1,0 +1,72 @@
+l'idee de cette experience est de pousser a l'extreme l'active learning en Deep learning
+
+questions:
+- l'apprentissage actif en iteration (quelques corrections des données par epoque qui possedent l'entropie minimale), ameliore t il toujours les performances ? Si non jusqu'à quand ça décroit ?
+- est ce que la capacité limitée d'un modele permet un plafonnement ?
+
+s'il y un plafonnement des performances (mon hypothese) alors ce sera une porte ouverte sur l'auto amelioration des IA par elles memes
+
+a tester:
+- correction iterative de quelques elements par epoque
+
+protocole:
+- predicitons des données non labelisées par un modele deja entrainé pour obtenir les labels
+- warmup jusqua convergence pour reaprentissage sur ces memes données a partir d'un modele identique mais non entrainé initiallement
+- identification par epoque de quelques erreurs de labels ordonnées par confidence entropy pour corriger les labels vis a vis des predicitons les plus confiantes
+- continuer le processus jusqua un nombre depoque equivalent au nombre de données
+- enregistrer les performances de loss par epoque (hors warmup)
+
+Resultats attendus:
+- si le modele a des performances qui plafonnent avec un nombre depoque egal au nombre de données, c'est que la theorie est confirmée
+- normalement au moment du plafonnement il y aura a chaque epoque un switch de classe des memes données. Il est censé hesiter sur la classe associées
+Si cetait le cas alors il y aurait des données bruitées. Peut on compter ces switch ? peut t on considerer que ces données sont mauvaises pour la clarté de la perception du modele dans son apprentissage ?
+
+si ce n'est pas le cas:
+- quel est le phénomene qui permettrait que ça marche ?
+* petit nombre delements par epoque permet une transition lente et donc eviter un desapprentissage trop rapide
+
+tester sur le hackathon de dataanalytics:
+- ce serait la meilleure maniere de connaitre dans le cadre dune competition si ça marche
+
+SI LE CODE FONCTIONNE VOIR DIRECTEMENT AVEC BOTAN POUR LES FORMULES RL !!!!!!!!!!!!!
+
+questions:
+1- combien d'elements par epoques peuvent etre modifiée (compter en pourcentage du nombre de données)
+ça permettra d'identifier la capacité d'un modele a pouvoir desapprendre
+lidee repose sur la maximisation du desaprentissage pour un reapprentissage le plus rapide possible (pas besoin de faire autant diteration que le nombre de données)
+
+solution question 1:
+- peut etre qu'un indicateur du nombre de mauvaises données en pourcentage permettrait de faire cette acceleration 
+plus il y a de données a corriger, plus il y a de la marge pour corriger iterativement
+a linverse moins il y a de données a corriger, moins il faut corriger de données
+
+question:
+comment identifier la quantité de données labelisé suivant des score de metriques a valeurs continues ?
+possiblement en prenant la moyenne totale pour obtenir 1-mean(score)
+
+ça permettrait l'exploration rapide et un ajustement fin vis a vis de la quantité de données
+
+
+pourquoi ça ne marcherait pas ?
+si le nombre de données d'erreur est trop grand alors il risque davoir une très forte tendance a un desaprentissage sous forme de conditionnement de laglorithme a faire la politique du moindre effort
+
+
+Quest ce que la notion deffort ?
+
+Je suppose comme lhumain, que moins il y a deffort de changement, moins il aura tendance a progresser. Il prefere conserver sa vision et comprehension par flemmingite aigüe
+
+comment palier a cette dissonance cognitive potentielle ?
+
+Si on corrige les données par ordre dentropie basse, alors il y a une confirmation dans ces predictions
+
+le fait de corriger des données par entropie basse permet a durant lentrainement de confirmer sa perception. Il faut donc qu'il reapprenne iterativement par epoque avec un nombre limité de correction.
+
+Si on corrige un trop grand nombre de données par epoque dans le but daccelerer le processus, la dissonance cognitive apparait trop fortement
+
+A la maniere dun humain, il peut changer sa vision du monde pas par pas sinon cela implique trop de changement dans son conditionnement et donc une perte de fondement aboutissement soit a un biais de confirmation soit une perte de repere.
+
+SI ÇA NE MARCHE PAS:
+le probleme est certainement dû au nombre de changement par iteration
+il faudra donc modifier qu'une seule donnée par donnée
+
+

@@ -1,0 +1,79 @@
+
+
+les avantages de ma future methode:
+- plus aucun hyperparametres (generalisation de la methode sans besoin dun expert de lalgorithme)
+- plus performant ? (peut etre que plusieurs reboot permettront la performance sans besoin de mixup et data augmentation)
+- plus generalisable  (creation dun nouveau domaine de gestion de noisy labels dans le NLP (pas de benchmark existant a premiere vue))
+- plus rapide (pas 2 modeles, pas de mixup, pas de data augmentation)
+- plus simple d'utilisation (plug modele et données)
+
+
+CONTRAINTES pour script de generalisation:
+- pas de mixup
+- pas de data augmentation
+
+
+PROTOCOLE:
+ I   obtenir les meilleures perforamnces sur CIFAR 10 sym 0.5:
+
+	0- phase 0: pseudo labeling hors warmup pour selection > args.tau
+
+	1- phase 1: SOP: regularisation de l'apprentissage pour eviter un suraprentissage 
+		critere de selection: doit etre adaptée a la detection d'objet
+		NLL: https://arxiv.org/abs/2305.12715v3
+		paper: https://proceedings.mlr.press/v162/liu22w.html
+ 
+	2- phase 2: ajouter la CE pour corriger les données
+		ATTENTION: conserver la CSS mais ajouter en plus la correction des données !
+
+	3- phase 3: explorer la suppression/ajout de la CSS
+
+	4- phase 4: enlever la LGA et la fusionner au reste
+
+	5- phase 5:(2 jours) appliquer la exp(mean(log(CE)) sur données de test (plus besoin de label sur la val/test)
+	       critere de selection; capture de la meilleure epoque
+	       solution: permet deffectuer un eraly stopping sur val/test sans label val/test 
+	
+	6- ajouter le kernel-ssl
+
+II   obtenir les meilleures perforamnces sur object detection:
+ 
+        0- train un modele sur dataset coco
+
+	1- enlever la contrastive learning
+	
+	2- ajouter la Data augmentation (text detection) de doctr
+
+	3- regularisation de l'apprentissage pour eviter un suraprentissage
+		critere de selection: doit etre adaptée a la detection d'objet
+		NLL: https://arxiv.org/abs/2305.12715v3
+		paper: https://proceedings.mlr.press/v162/liu22w.html
+ 
+	4- ajouter la CE pour corriger les données
+		ATTENTION: conserver la CSS mais ajouter en plus la correction des données !
+
+	4- phase 4: appliquer le reboot avec meilleur modele
+       	critere de selection: gains de performances convergence rapide  
+       	solutions: 
+       		* ajout dun meilleur modele pour de meilleures performances
+       		* ajout de early stopping sur warmup (10) et sur training (50)
+
+	4- phase 4:text detection:  faire un script de nettoyage de données avec CE minimal à propagation
+
+	5- phase 5:(2 jours) appliquer la exp(mean(log(CE)) sur données de test (plus besoin de label sur la val/test)
+	       critere de selection; capture de la meilleure epoque
+	       solution: permet deffectuer un eraly stopping sur val/test sans label val/test 
+
+	6- phase 6: adapter le code a l'apprentissage des modeles de doctr (Text Detection)
+
+
+III  obtenir les meilleures performances sur (text recognition)
+	
+	1- phase 1: ajouter le SSL 
+		https://github.com/thundervvv/rclstr
+
+IV obtenir les meilleures performances sur CIFAR10 sym 1.0
+     A PARTIR DE 5*NB_CLASS DONNÉES LABELISÉES EN WARMUP
+
+
+

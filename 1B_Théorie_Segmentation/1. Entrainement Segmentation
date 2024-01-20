@@ -1,0 +1,9 @@
+1- Entrainer chaque modele doctr de Text Detection sur l'entiereté des datasets de benchmark (FUNSD,CORD, CUTE, ICDAR, etc.)
+2- verifier qu'il n'existe pas d'erreur de labelisation a la fois dans le train et le val
+3- observer la difference de performances entre les specialisées et le benchmark total
+4- creer un modele global contenant les modeles en modele de fusion (fusion lors des embedding)
+5- entrainer ce modele final sur le benchmark entier
+
+QUESTIONS:
+A- Existe t il des embeddings pour les modeles de classification ?
+B- Existe t il des erreurs dans les labels de certaines données ? 

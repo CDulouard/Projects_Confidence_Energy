@@ -1,0 +1,68 @@
+generalisation de l'identifiaciton des modeles de fusion au travers de l'embedding
+
+La seule similarité entre les modeles qui effectuent des taches differentes se trouve au niveau de l'embedding en amont de la tachhe de classificaiton et/ou de regression
+
+Il faut donc sinteresser a lexpression des embedding des differents modeles concernés
+
+Il existe plusieurs defis:
+- dans le cas où la shape des embedding ne sont pas equivalent
+- dans le cas où les modeles expriment des embedding sans degré de similarité (sans Self-Supervised learning)
+
+
+Il faut donc faire en sorte que les deux modeles de fusion expriment au mieux l'espace vectoriel. Plus la base est grande en dimension, plus nous avons exprimé des informations
+independante representatives des K modeles
+
+Realiser l'ACP sur la concatenation et observer le nombre de features non negligeable permet didentifier le nombre de bases exprimant la diversité des modeles a fusionner
+
+dans le cas ou nous avons K features non negligeables pour 2 modeles et aussi K features non negligeable pour 2 autres modeles, lesquels prendre ?
+Quelles sont les metriques devaluation de la perforamnce de l'ACP ? La variance expliquée
+
+vaudrait il mieux quelques variables qui explique tout lembedding ou plusieurs variable moyenne qui explique la variance.
+
+En partant du concept que la transformation non lineaire des modeles pour simplifier lespace dans le but dune classificaiton est quasi parfait, nous devrions avoir très peu de variables expliquant la variance. 
+
+et si on determinait a la place de la variance expliqué la notion d'ordre par lentropy ?
+
+En gros plus les modeles ont la meme perception, plus ils expriment la meme chose dans leur embedding
+Donc il y aura, par l'ACP, moins de variables
+
+Donc plus on a de variable dans l'ACP qui sont non negligeable plus nous avons permit dexprimer des notions differentes et variés des données
+
+la variance expliqué peut etre normalisé par la somme des variances expliqué
+
+il faut donc qu'il y ait une entropy elevée de part la recherche dune repartition ideal identique
+
+il faut donc que l'entropy de la variance normalisé de l'ACP soit la plus élévée possible
+
+
+Probleme:
+Il fautdrait etre en capacité devaluer la bonne diversité des modeles lors de leur fusion, tout autant que leur capacité a exprmier dans un nombre restreint les informations
+
+Il faut donc que l'enropy soit maxximale pour les features d'ACP concaténé mais que l'entropy de chaque ACP par modele soit minimal
+
+Demonstration:
+en partant du principe dun modele non entrainé, dont les poids sont initialisées aleatoireement, l'embedding representatif du modele non entrainé possede une entropie maximal vis a vis de l'entropie de la variance expliquée des features de l'ACP
+Dans le cass contraire, cest a dire dans le cas où le modele a appris des données, l'embedding est plus ordonnée et possede des informations pertinentes sur les données. 
+L'entropie de l'ACP est donc minimisée. Plus un modele a appris des données plus il a construit un espace d'embedding a entropy minimisée.
+L'ACP permet de mettre en evidence la base approximée la plus representative des données de l'embedding.
+en prenant l'embedding avant la couche de classification/regression, nous avons a disposition l'expression des données la plus simplifié pour separer les features.
+L'embedding etant en amont dune seule couche, la non linearité des données est donc très simplifiée
+Donc Lorsque le modele a appris, la variance expliqué possede une entropie minimisé. 
+Partons du principe mainenant, que 2 modeles ont appris des données au plus possible selon leur capacité de perceptions de l'information. On part donc du principe que L'entropie de la variance expliqué normalisée est maximale pour chacun des modeles
+La supposition suivante est a prouver mathematiquement. Une fois les ACP des embedding de chaque modele effectué, nous effectueons une ACP sur les embbeding non lineaire de la 
+concatenation des embedding de chaque modele. En partant du concept que chaque embbeding independement possede des informations sur les données car apprises, en effectuant une ACP
+sur les données concaténé nous devrions obtenir un nombre plus important de features. Il faudrait donc maximiser l'entropie de l'acp concaténée.
+La supposition la plus importante est les suivante:
+- les embediding avant la couche de classificaiton/regression sont les plus 'aplanie' possible cas ils sont juste devant une seule couche de non linearité.
+existe il des methode de resuction de dimension non lineaire qui possendent une valeur de la variance expliquée ?
+Par suppostion que lespace des features avant la couche de claissification est 'quasi lineaire' employer une KPCA serait la soltion car on peut avoir une reduciton de dimension non lineaire mais aussi la variance expliquée.
+
+
+Protocole:
+- Inference des modeles en capturant les emebedding avant dernier couche de classification/regression
+- detemrination de l'ACP et de la KPCA en obtenant la variance expliqué par composantes princpale en conservant une variance expliqué totale de 99%
+- concatenation des embedding et application de l'ACP et la KPCA pour obtenir la variance expliqué de chaque composante prinpcale avec une variance expliqué de 99%
+- evaluation de la metrique entre l'entropie de la variance expliqué de chaque emebedding et de l'embbeding concaténé.
+
+la metrique repose sur le principe de maximisation de la diversité (somme entropique des variances de chaque modele) et de lentropie de la variance de l'embedding concaténé
+plus nous aurons de features non negligeable dans l'ACP/KPCA de l'embedding concaténé, plus nous aurons prouvé que les embedding dse differents modeles 'percoivent' linformation differement.

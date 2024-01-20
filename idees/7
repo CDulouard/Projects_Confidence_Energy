@@ -1,0 +1,36 @@
+a disposition:
+des données pour des benchmark
+plusieurs modeles de text detection et de text recognition
+un modele de verification des données
+
+
+comment depasser doctr ?
+en faisant des benchmark de comparaison pour montrer nos performances
+avec les metamodels 
+avec la verification des données
+
+1-/ implementation de FAST text detection model (meilleur en produit vitesse et performances) (2semaines)
+a-/ implementation de doctr en ONNX pour meilleures performances sur cpu (
+b-/ implementation de MixNet text detection model (meilleur en performances)
+c-/ implementation du script de prediction de text recognition avec toutes les possibilites
+
+
+long terme:
+- application en temps reel sur de la video pour segmenter et reconnaitre les textes
+- collecter de la donnée pour entrainer a terme un enorme modele CLIP pour battre les performances du domaine
+
+
+
+questionnement?
+
+comment determiner quand le modele hesite selon le score de confiance ? quelle valeur ?
+
+
+
+comment faire de l'active learning sur la segmentation d'image ?
+
+
+
+comment entrainer le modele clip une fois les données obtenue ?
+- determienr toutes les possbilités de labels par le meilleur modele donc une fois qu'on a les données et que l'on a fait le script d'inference du meilleur modele avec ttes les posssibilitées
+

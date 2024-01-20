@@ -1,0 +1,3 @@
+0- ajouter la correction progressive des données grace a la Confidence energy
+
+(potentiellement enlever la contrastive loss)

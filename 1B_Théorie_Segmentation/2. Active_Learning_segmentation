@@ -1,0 +1,34 @@
+splliter le dataset en 10 parties
+faire des entrainements independants sur chacune des 10 parties du dataset
+determiner l'entropy de chaque segment (comment faire?)
+prendre les segment les plus confiant comme label si pas deja labelisé
+refaire un entrainement avec ces labels et les anciens en resplittant les données
+
+probleme: on a plusieurs modeles de performances differentes, est ce quil faut prendre tous les modeles ou juste le meilleurs pour estimer les predictions ?
+
+
+
+etablir un dataset de test de references (avec les datasets de benchmark classiques ?)
+
+1- etablir un dataset de reference pour le train et le test
+	* si on a pas encore de données capturées, prendre tout les datasets existant de benchmark train pour train et val pour val
+	* si on a beaucoup de données capturées, il serait interessant de les ajouter dans le train et une partie en test
+	
+	
+	
+	
+L'entrainement des text detection pour le moment:
+0- prendre toutes les données de train pour train et de test pour test
+1- choisir les modeles a entrainer (au moins 2 ou 3)
+2- faire un K split pour le train et entrainer chacun des modeles sur chaque K-Fold
+3- faire les predictions des segmentations de tous les modeles sur tout les Fold de validation
+	
+	
+PROBLEMES RENCONTRÉS pour le moment:
+A - quels sont les modeles qu'il faudrait utiliser ?
+B - comment determiner si une segmentation est identique aux autres ?
+
+
+SOLUTIONS TEMPORAIRES:
+dans ce cas là nous avons les labels de chaque segmentation
+

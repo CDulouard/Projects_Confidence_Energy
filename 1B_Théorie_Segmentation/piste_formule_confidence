@@ -1,0 +1,41 @@
+A Theoretical and Practical Framework for Evaluating Uncertainty Calibration in Object Detection
+
+probleme des metriques qui se basent tout sur le label associé a la classe
+
+est il possible de faire mieux ?
+
+comment identifier les zones de detection sans ths ?
+
+doit on absolument dans la cadre de la detection d'objet induire le ths comme variable de la confience dentropy?
+
+pour le moment
+C1 = p*ln(p) + (1-p)*ln(1-p) avec p>ths
+
+essayer de ne pas avoir le ths comme variable de selection de la zone dans le cadre de l'object detection
+
+c2 = ln(p/(1-p)) avec p>ths? 
+
+il faut faire en sorte de regarder comment on derive de la divergence KL a la binary cross entropy
+
+entropy croissante suivant ths ?
+
+il faudrait faire la somme jusquaux zones a probabilité null pour eviter le ths comme variable
+
+QUESTIONS:
+- quelles sont les avancées des papiers de recherche qui formulent une confidence entropy sans label ?
+- comment fonctionne reellement un modele d'object detection ? (si ce nest une probabilité de limage entre 1 et 0 ?
+- existe t il dautres methodes d'object detection que le mask de proba entre 0 et 1?
+
+comme cest realisable en classification softmax il y a forcement une solution pour l'object detection
+
+C1 = p*ln(p) + (1-p)*ln(1-p) avec p>ths
+c2 = ln(p/(1-p)) avec p>ths? 
+c3 = p*ln(p/(1-p) avec p>ths
+c4 = ln((p-ths)/(1-ths)) ou  ln((ths-p)/(p)) a ths fixé
+c5 = pln((p-ths)/(1-ths)) + (1-p)ln((p-ths)/(p)) a ths fixé
+c6 = ln(p(p-ths)/(1-ths)(p-ths)) = ln(p/(1-ths)) si p>ths ou ln((1-ths)/(p)) 
+c7 = un truc hybride qui permet davoir en ratio 1-ths ou ths comme ln(p/(1-ths)) ou ln(p/ths)
+
+JE CROIS PLUS EN UNE FORMULE HYBRIDE DE C7
+A PROUVER ULTERIEURMENT
+

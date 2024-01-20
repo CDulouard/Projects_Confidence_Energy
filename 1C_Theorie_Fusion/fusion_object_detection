@@ -1,0 +1,10 @@
+Les deux modeles possedent des similarités au niveau structurelle
+https://github.com/mindee/doctr/blob/7ab0ece3a4aec256bb36c311f4c6eeaa597d826b/doctr/models/detection/linknet/pytorch.py
+https://github.com/mindee/doctr/blob/7ab0ece3a4aec256bb36c311f4c6eeaa597d826b/doctr/models/detection/differentiable_binarization/pytorch.py
+
+ils ont tout les deux le feature_extractor, le fpn, et le classifier
+Il serait donc postientiellement interessant de fusionner les deux embedding au niveau de la sortie du fpn
+Si les modeles sont de meme shape on peut sommer les embedding:
+Si les modeles ne sont pas de meme dimension, ajouter une couche pour redimensionnement sur la couche la plus petite
+Le meilleur serait de concatener les embedding
+

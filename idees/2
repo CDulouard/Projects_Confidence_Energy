@@ -1,0 +1,55 @@
+I experiences
+
+A - SUJET EXPERIENCE A:
+	l'utilisation des predictions en zero shot learning avec plusieurs output de differents modeles ne permet pas de meilleurs resultats a premiere vue
+	
+	* RESULTATS METRIQUE PARTIAL:
+		sar_resnet31: 88.80%
+		crnn_mobilenet_v3_small: 87.97%
+		master: 88.61%
+		combined: 88.262%
+
+	*SOLUTION A ESSAYER:
+		le finetuning du grand modele clip avec beaucoup de données permettrait potentiellement davoir de biens meilleurs resultats
+
+B -SUJET EXPERIENCE B:
+	l'utilisation des predictions + LA TARGET en zero shot learning avec plusieurs output de differents modeles permet d'obtenir de biens meilleurs resultats
+	
+	* RESULTATS METRIQUE PARTIAL:
+		sar_resnet31: 88.80%
+		crnn_mobilenet_v3_small: 87.97%
+		master: 88.61%
+		+ target
+		combined: 92.12%
+
+	* SOLUTION A ESSAYER:
+		-prendre le meilleur modele et ajouter toutes les combinaisons lors d'hesitations du modele a choisir le caractère et tester a nouveau l'experience sans target
+		 et comparer entre experience A et B sur la metrique PARTIAL
+
+C - SUJET ECXPERIENCE C:
+	l'utilisation des predictions en zero shot learning avec plusieurs output du MEILLEURS MODELE permet il d'obtenir de MEILLEURES RESULTATS ?
+
+
+TO DO:
+
+1-/ tester la solution a essayer de lexperience B
+
+2-/etudier l'active learning paper sur la segmentation et en regarder d'autres en lien (voir la barre des lien sauvegardés)
+
+3-/ etablir une methode de self improvement pour realiser convenablement de l'active learning pour le text recgnition:
+	* faire de la veille sur l'AL dans scene text recognition
+	* 1iere piste interessante mais très couteuse (plutot utiliser le pc de clement) : faire un K FOLD donc K entrainement sur le train et estimer par ordre de confiance les 	   erreurs potentielles
+
+VEILLE HEBDOMADAIRE:
+- verifier s'il existe un nouvel algorithme de zero shot classification
+	s'il en existe un nouveau tester a nouveau le script test_inference_clip.ipynb
+		conda activate doctr3
+		load le nouveau modele
+		observer les resultats
+- verifier si de nouveau modeles de text recogntion sont sortis sur Doctr
+
+VISION LONG TERME:
+une fois une base de données etablie en quantité et qualité, il serait possible detablir des benchmark sur des modeles large comme clip pour des descriptions d'images de manière generale
+
+PISTE DE LABELISATION DE DONNÉES:
+porposer une solution captchap our les données predites avec peu de confiance

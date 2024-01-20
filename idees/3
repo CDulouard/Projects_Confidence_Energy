@@ -1,0 +1,20 @@
+critères:
+besoin de labeliser en masse les données classées comme incertaines
+l'idee est de rendre necessaire la labelisation a la main par le plus grand nombre de personnes
+si possible que ce soit ludique
+
+pour ameliorer la qualité des aglorithmes, il serait interessant de proposer une solution de labelisation par les utilisateurs.
+plusieurs solutions existent:
+- creer des captcha 
+ * mettre des captcha sur des sites demanderait de developper une solution qui permettrait de labeliser les données. Ce n'est peut etre pas la meilleure solution sachant qu'il existe potentiellement beaucoup d'acteurs dans ce domaine
+- proposer une remuneration par labelisation: 
+ * dans le cas où les utilisateurs non premium utilisent l'api, ceux ci ont un nombre de requetes limités par jour. il serait interessant de leur proposer de gagner des credits en echange de labelisation directement sur le site
+- creer une competition avec toutes nos données mal labelisées libres de droits. Cela permettrait a des milliers de personnes de participer a la competition,  de developper des solutions plus modernes et de labeliser les données.
+- proposer a des utilisateurs non premium d'obtenir une clef premium a partir d'un certain nombre de labelisation réalisé par mois.
+- creer un jeu video educatif pour que les enfants apprennent a lire et ecrire de remplir les captcha et de monter en difficulté progressivement
+
+- proposer une solution qui permettent aux personnes d'avoir accès a la correction a la main (payante dans le cas de l'option manuelle gérée par l'entreprise) gratuite (dans le cas où l'on propose parmis les données predites les plus incertaines de les corriger in situ.
+
+- parrainage: permet d'obtenir plus de credits
+
+

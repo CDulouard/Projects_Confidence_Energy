@@ -1,0 +1,47 @@
+Reinforcement learning confidence prediciton
+
+Comment determiner la confidence selon un algorithme de Reinforcement Learning?
+
+Quelles seraient les implications ?
+Il existerait differentes implication:
+- l'estimation d'une confiance de prediction permettrait a l'algorithme de quantifier son erreur de prediction et donc d'etablir une auto-evaluation de son incapacité a resoudre le probleme dans son environnement
+- en etablissant cette metrique, cela permettrait de simuler exactement les evenenement que le modele n'est pas apte a resoudre. Generer ces evennements difficile et non vue permettraient une robustesse sans precedent du modele a evoluer dans son environnement
+- avoir une metrique qui permet destimer ce degré de confiance permettrait a plusieurs modeles de "switcher" pour subvenir a une situation dont le modele principal ne serait pass apte a resoudre. ce serait comme faire appel a un autre point de vue avec une perception differente pour resoudre le probleme
+
+
+partir du concept que ce qu'il a vu il sait deja le resoudre
+comment generer des evenements dont le modele n'est pas apte? qu'il n'a pas vu ? 
+on peut avec un ordinateur quantique determiner toutes les situations possible car une combinaisons exponentielle de possibilités. Serait ce realisable par une astuce sur ordinateur classique ?
+Y a t il forcement besoin d'un ordinateur quantique pour estimer tous les etats possibles ?
+peut etre que sur ordinateur classique il serait interessant de realiser une sorte de programmation dynamique pour generer les inputs X a partir des outputs Y. Il faudrait donc resoudre une equation qui part de loutput et qui quantifier les N possibilités dinput par couche. Il faudrait aussi faire de telle sorte a avoir une exploration de ses inputs la plus diversifié et unique possible pour representer lespace de la meconnaissance des situations.
+
+protocole:
+-on a les valueurs des outputs initiales recherchées (esitamation d'entropy maximale = peu de confiance). Soit W la derniere couche (couche dense+Sigmoid)
+on a donc  Ŷ = 1 / (1 + exp(-WX))
+- Y connue, W connue et X inconnue
+donc X = log(Ŷ/(1-Ŷ))/W 
+- on a choisir Ŷ output peu confiante donc Ŷ strictement diffferent de 0 et 1
+ce qui permet une consitance de la formule dans les valeurs
+- il faut que X soit généré de telle sorte a qu'il soit limité a N vecteurs et que ce soit les vecteur les plus diverses possibles representant l'espace des 'meconnaissances'
+- ajouter du bruit gaussien dans les output Ŷ permettent de generer les X iterativement
+- comment generer les meilleurs Ŷ . Il faudrait recreer les conditions intiales de linput X pour que la simulation permettent a au modele dapprendre
+- on commencera par un bruit gaussien sur lhesitation la plus significative cest a dire - 1/K * log (1/K) où K est le nombre de classes en sortie
+on a donc -(1/K+N(0,1))*log(1/K+N(0,1)) avec N(0,1) le bruit gaussien de moyenne nulle et decartype 1. En posant Ŷ = 1/K + N(0,1)
+on genere un nombre limité de Ŷ (disons A nombre doutputs).
+-On obtient les A vercteurs X. Il faut que les A vecteurs X soit le plus dissimilaires possibles. Donc en generant 100*A outputs Ŷ on selection les 1% (A) X les plus dissimilaires. La metrique peut etre la cosine similraity 
+- supposons qu'on ait maintenant les A vecteurs X et que l'on ait une couche dattention (QK.D).V 
+
+VOIR AVEC BRICE pour etablir les situations meconnues du modele a partir des output Y dans le cadre dune architecture quelconque (ideallement transformer et CNN (le MLP est simple))
+
+permettre didentifier les evennemnt meconnues où le modele hesite permet au modele dapprendre en mettant dans des conditions initales la simulation pour resoudre le probleme
+
+
+
+
+
+implications:
+- des algorithmes bien plus robustes aux evenneemnt improbables ou non appris
+- des drones,satellites, fusées, avions, et robots plus apetant et reactif que n'importe quel humain en toute circonstance
+- des LLMs qui apprennent par eux meme
+- amelioration considerable des voitures autonomes 
+

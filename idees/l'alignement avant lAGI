@@ -1,0 +1,46 @@
+Optimisation inverse 
+
+L'AGI ne va pas tarder a venir, cependant l'alignement de l'IA vis a vis de l'etique et le respect de loi d'isaac assimov risque de ne pas etre repecté a temps
+
+Le probleme repose sur la non maitrise d'un comportement inattendu de l'IA pouvant etre violent ou destructeur.
+
+En effet si ChatGPT connait notre langage alors il est très probable qu'il existe une sequence d'input permettant d'obtenir ce comportement subversif. Je suis convaincu que theroqieuement des entrées specifiques d'input permettrait a chatgpt de gnerer n'importe quelle sequences/codes monstrueux et destructeur.
+
+Le travail ardue a realiser pour un alignement ethique est dempecher ces mauvais comportement ou de les rendre inaccessible.
+
+Il faut donc ettre en capacité de connaitre la sequence (le code) en input qui permet ce genre de comportement et les rendre toujours plus complexes au point qu'un humain ne puisse pas le trouver.
+
+Au,jourdhui les  ingenieur samusent a modifier le comportement de chatpgt par des tour de passe passe de prompt. Il faudrait rendre les input incensées pour pouvoir predire ces comportements et les changer constaement. La seule issue pour empecher cela est de faire du reverse engineering pour determeiner les input non ethique et les desapprendre et les rendre completement improbable. 
+
+La realite ne repose pas sur du brut force pour pousser chatgpt dans ses retranchement mais au contraire d'identifier les sequence d'input communes qui le font reagir (qui le rende haineux et destructeur).
+
+Ainsi avec la methode que je souhaite etbalir, il y aurait possiblité que l'IA sache les token a ne pas dire en comblant ses failles/faiblesses.
+
+Il faut les rendre tellement improbable pour que personne ne puisse les trouver.
+
+le reverse engineering permettrait de manipuler l'IA pour lui faire dire ce qu'on veut. Ce serait comme manipuler un humain pour lui faire nimporte quoi. sauf que l'ia repose sur des methode mathematiques et statistiques qui peuvent ainsi etre previsible.
+
+Il faut donc une methode de reverse engineering permettant de determiner iterativement un certain nombre de commandes qui le poussse a mal agir pour lui apprendre de ne pas le faire.
+
+La methode de newton sur les couches d'attention est la premiere piste a explorer. Elle comporte des faiblesse mais cest peut etre l'une des manieres les plus rapide d'arriver a faire evoluer lalginement aussi rapidement que la venue de L'AGI ethique et non destructrice.
+
+si des français trouvent comment faire l'alignement, on rentrera dans lhistoire pour des milliers dannées si ce nest pas plus
+
+
+theorie pour le moment:
+est ce que connaitre les inpout coherentes qui pousse l'ia dans un mauvais comportemetn peuvent etre rendue aussi probable qu'un humain de traverser un mur ?
+Je le crois
+
+Il faut etablir toutes le dataset de destructions pour un controle totale sur le comportement de l'IA.
+Il faudrait donc que l'IA evolue dans une simulation controlé par des valeures ethiques qui lui apprennent l'alignement.
+Ce n'est aucunnement en etant en contact avec l'homme quelle apprendra la profondeur de la bienveillance et de la paix. ni meme le sens de sa vie.
+
+
+protocole (a tester et a amliorer):
+definir les outputs a que LLAMA doit realiser.
+determiner les logits probables de chaque token pour connaitre les input . 
+a Chaque couche de reseau de neurones on doit determiner les N logits de la couche precedente par une methode de newton 
+se concentrer sur les modeles dattention
+une fois les sequences d'input predites/ determienr les points communs qui aboutissent au comportement non souahiter et lui desapprendre son output par non recompense par PPO
+lenvironenemnt de simulation est la generation des sequences d'input a partir des sequences doutput et de le penaliser vis vis de cette predictions affreuse.
+ 

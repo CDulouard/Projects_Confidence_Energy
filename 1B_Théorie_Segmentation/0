@@ -1,0 +1,8 @@
+modele selectionnées avec leur performances:
+linknet_resnet50      : FUNSD (Recall: 78.99% | Precision: 84.78% | Mean IoU: 64.33%)
+db_mobilenet_v3_large : FUNSD (Recall: 78.30% | Precision: 82.80% | Mean IoU: 63.96%)
+
+modele selectionné:
+linknet_resnet50 
+
+

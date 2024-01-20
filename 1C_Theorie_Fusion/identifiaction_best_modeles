@@ -1,0 +1,63 @@
+supposition: 
+si on considere que ParSeq obtiendra des performances proches de 100% en text recognition, Mindee aura donc un produit d'extrême bonne qualité
+Il sera donc difficile de faire mieux avec autant de bonnes performances
+Lorsque tout les modeles de doctr sur la librairie pytorch seront disponible, il sera interessant de faire un modele de fusion pour avoir d'encore meilleures performances.
+Dans l'idée il sera interessant d'utiliser deux modeles qui ont de très bonne performances avec le moins d'intersection entre les données.
+Ce principe de modele de fusion qui obtient de meilleures performances peut partir du concept de la generation d'une base de vecteur les plus independant permettant de definir
+lespace de representation.
+pour la metrique d'evaluation de la diversité on utilisera la distance de Levenstein (noté dist)
+On pose:
+dist_word_i_target = dist(word_model_i, target)       # la distance de levenstein entre le mot du model i et la target associé
+dist_word_i_word_j = dist(word_model_i, word_model_j) # la distance de levenstein entre le mot du model i et le mot du model j
+On pose: (On smooth pour eviter davoir des 0 ou NaN)
+ratio_word_i_target_smoothed = ( dist_word_i_target + 1)) / (max(len(word_model_i), len(target))+1)
+ratio_word_i_word_j_smoothed = ( (max(len(word_model_i), len(word_model_j)) - dist_word_i_word_j + 1) / (max(len(word_model_j), len(word_model_j))+1) 
+
+ratio_word_i_target_smoothed:
+- meilleur quand 1/(max(len(word_model_i), len(target))+1)
+- pire quand 0
+ratio_word_i_word_j_smoothed:
+- meilleur quand 1
+- pire quand 1/(max(len(word_model_i), len(target))+1) donc proche de 0
+
+ENTROPY = MEAN( log(sqrt(ratio_word_i_target_smoothed**2 +ratio_word_j_target_smoothed**2)) 
+              - log(ratio_word_i_word_j_smoothed)
+              )
+On pose: 
+Total_ratio = 1 + sqrt(ratio_word_i_target_smoothed**2 +ratio_word_j_target_smoothed**2) / ratio_word_i_word_j_smoothed
+CAS Exemple:
+- bonne diversité
+   * si model1 tres bon et model2 très bon2 mais different  model1 = 2 model1 = 1 et total= 3
+   * Total_ratio = sqrt((2**2+1**2)))/3 = 0,745355992 
+- CAS peut de diversité
+   * si model1 tres bon et model2 très bon2 mais different  model1 = 2 model1 = 1 et total= 3
+   * Total_ratio = sqrt((2**2+1**2)))/2 = 1,118033989
+- CAS très peu de diversité
+   * si model1 et model2 egaux mais differents de target (1)
+   * Total_ratio = sqrt((2**2+2**2)))/0.1 = 28,28427125
+
+Total_ratio:
+- plus est proche de 1 plus la diversité et lexcellence sont present
+- plus est proche de inf moins il y a de diversité et moins il y a de performance
+
+si on pose log(Total_ratio):
+- plus est proche de 0 plus la diversité et lexcellence sont present
+- plus est proche de inf moins il y a de diversité et moins il y a de performance
+
+On pose:
+ENTROPY = MEAN(-log(Total_ratio_k))
+DIVERSITY = EXP ( MEAN( - log(sqrt(ratio_word_i_target_smoothed**2 +ratio_word_j_target_smoothed**2)) + log(ratio_word_i_word_j_smoothed)))
+
+Cette metrique n'est valable que pour des modeles de text recongtion entrainés et pour determiner le couple optimale pour la fusion
+
+
+GENERALISATION A K MODELS:
+
+ENTROPY = MEAN( log(sqrt(SOMME(ratio_word_i_target_smoothed_K**2))) 
+              - log(sqrt(SOMME(ratio_word_i_word_j_smoothed_K**2)))
+              )
+              
+DIVERSITY = EXP ( MEAN( - log(sqrt(SOMME(ratio_word_i_target_smoothed_K**2))) - log(sqrt(SOMME(ratio_word_i_word_j_smoothed_K**2)))))
+
+
+

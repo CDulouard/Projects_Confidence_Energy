@@ -1,0 +1,11 @@
+DONE:
+- avec mixup
+- avec data augmentation
+- avec penalties (warmup, train, eval_train)
+- FastAdaBelief
+- Contrastive learning (warmup, train)
+
+TO DO:
+- SOP
+- ajouter la correction progressive des données grace a la Confidence energy
+- enlever la contrastive loss

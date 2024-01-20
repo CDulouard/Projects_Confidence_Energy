@@ -1,0 +1,35 @@
+generalisation de l'identifiaciton des modeles de fusion au travers de l'embedding
+
+La seule similarité entre les modeles qui effectuent des taches differentes se trouve au niveau de l'embedding en amont de la tachhe de classificaiton et/ou de regression
+
+Il faut donc sinteresser a lexpression des embedding des differents modeles concernés
+
+Il existe plusieurs defis:
+- dans le cas où la shape des embedding ne sont pas equivalent
+- dans le cas où les modeles expriment des embedding sans degré de similarité (sans Self-Supervised learning)
+
+
+Il faut donc faire en sorte que les deux modeles de fusion expriment au mieux l'espace vectoriel. Plus la base est grande en dimension, plus nous avons exprimé des informations
+independante representatives des K modeles
+
+Realiser l'ACP sur la concatenation et observer le nombre de features non negligeable permet didentifier le nombre de bases exprimant la diversité des modeles a fusionner
+
+dans le cas ou nous avons K features non negligeables pour 2 modeles et aussi K features non negligeable pour 2 autres modeles, lesquels prendre ?
+Quelles sont les metriques devaluation de la perforamnce de l'ACP ? La variance expliquée
+
+vaudrait il mieux quelques variables qui explique tout lembedding ou plusieurs variable moyenne qui explique la variance.
+
+En partant du concept que la transformation non lineaire des modeles pour simplifier lespace dans le but dune classificaiton est quasi parfait, nous devrions avoir très peu de variables expliquant la variance. 
+
+et si on determinait a la place de la variance expliqué la notion d'ordre par lentropy ?
+
+En gros plus les modeles ont la meme perception, plus ils expriment la meme chose dans leur embedding
+Donc il y aura, par l'ACP, moins de variables
+
+Donc plus on a de variable dans l'ACP qui sont non negligeable plus nous avons permit dexprimer des notions differentes et variés des données
+
+la variance expliqué peut etre normalisé par la somme des variances expliqué
+
+il faut donc qu'il y ait une entropy elevée de part la recherche dune repartition ideal identique
+
+il faut donc que l'entropy de la variance normalisé de l'ACP soit la plus élévée possible

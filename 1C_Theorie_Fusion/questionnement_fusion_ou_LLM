@@ -1,0 +1,42 @@
+comment faire pour avoir les meilleures perforamnces
+
+modeles de fusion sur text detection et text recognition
+ne serait il pas interessant davoir uniquemetn les gros modeles existant pour des performances optimales ?
+En effet la capacité de generalisation est impressionnante cependant les temps dinference sont extreememnt long
+dun autre coté le modele de fusion n'implique que de petit modele
+et de lautre le modele CLIP a besoin de beaucoup de données pour etre perforamant
+pour des questions pratique d'entraineenmtn et d'identification des erreurses il serait plus interessant de faire un modele de fusion plutot que de finetuner un gros modele
+
+les inconveient du grosm modeles:
+- besoin de beaucoup de données
+- le decodeur devrait etre implementé en entier
+- le decodeur devrait etre entrainé avec suffisamment de données
+- on exploite pas les capacités des modeles de doctr
+- si sur cpu, le gros modele en inference serait extremement long
+- on na pas suffisamment de données a part les benchmark
+
+les avantage du gros modele:
+- un seul modele pour chaque tache
+- permet detre dans la hype des très bonnes perforamnces actuelles des LLM
+- a une grande capacité de generalisation
+
+
+les inconvenient du modele de fusion:
+- besoin aussi de données
+- ce sont de petit modeles a petite capacité
+- comment identifier les modeles a integrer dans les modeles de fusion ?
+
+les avantages du modele de fusion:
+- pas besoin de reentrainer les modeles associé au modele de fusion
+- s'entraine très facilement car uniquempent les deux derniere couches a entrainer du modele
+- permet dexploiter le code deja existant des modeles de doctr
+- pas trop compliquer a implementer
+- permet de faire du kfold efficacement car pas besoin de finetuner les modeles
+- permet de sinspirer fortement de mes experiences (competitions et entreprise)
+- le modele de fusion peut integer le modele CLIP en input comme modele de fusion ce qui permettrait une grande capacité d'adaptation aux differentes données
+
+
+IL FAUT DONC FAIRE LES MODELES DE FUSION ET PAS FAIRE UN GRAND MODELE
+
+RIen que l'argument de prendre un modele CLIP en modele de fusion pousse a faire un modele de fusion le contenant
+En effet CLIP est specifiquement entrainé pour avoir un embedding performant

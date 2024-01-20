@@ -1,0 +1,16 @@
+TEXT RECOGNITION
+
+RECHERCHE DU MEILLEUR MODELE POUR MEILLEURES PERFORMANCES:
+
+* permettre de rediger plusieurs output du meilleurs modele dans un script et permettre u modele CLIP de chosir la meilleure option
+
+* ParSeq:
+	- si le modele parseq plafonne a la suite des entrainements sur les données, si on a une importante quantité de données bien labelisé, utiliser un plus gros modele ViT en encoder
+	- quand on a l'avait implémenté avec Felix, il etait possible d'avoir plusieurs couche dans le decoder, peut etre serait il interessant d'utiliser plus de couche qu'une seule pour de meilleures performances globales
+
+* GLobal: 
+	- faire un modele de fusion sur l'encoder en utilisant plusieurs encodeur 
+	- faire un modele de fusion sur le decodeur, avec une arcitecture "parallisée" au niveau du decodeur comme avec Bassem sur layoutLMV2 (transformer + CNN)
+	- faire un modele de fusion avec uniquement la fusion des embedding lors de la predicitons sur le MLP (entrainer chaque modele independamment et entrainer le MLP en dernier)
+	
+

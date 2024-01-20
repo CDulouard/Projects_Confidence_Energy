@@ -1,0 +1,64 @@
+reverse engineering de model de deep Leanring
+
+TRANSFORMERS
+
+K=W_k.X 
+Q=W_q.X
+V=W_v.X
+
+Y = softmax(K.Q^T).V^T
+
+Y = softmax((W_k.X).(W_q.X)^T).(W_v.X)^T
+
+Y = softmax(W_k.X.X^T.W_q^T).X^T.W_v^T
+
+Y = softmax(W_k.(X.X^T).W_q^T).X^T.W_v^T
+
+Y.(W_v^T)^(-1) = softmax(W_k.(X.X^T).W_q^T).X^T
+
+solution X iterative possible par la methode de newton
+
+Y.(W_v^T)^(-1).softmax(W_k.(X.X^T).W_q^T)^(-1) = X^T
+
+perso pas satisfaisante mais necessaire pour la majorité des infrastructure
+actuelles
+
+donc considerer la suite (Un)
+
+U_n+1 = (Y.(W_v^T)^(-1).softmax(W_k.(Un.Un^T).W_q^T)^(-1))^T 
+
+ce n'est ni une suite gemoetrique, ni arithmetique ni arithmeto-geometrique
+
+la suite est elle convergente ? Si oui il est fort probable de reverse engineer la donnée initiale.
+
+U_n+1 = ((W_v^T)^(-1).softmax(W_k.(Un.Un^T).W_q^T)^(-1))^T.Y^T 
+
+Un est une suite matricielle donc sil existe une solution il existe une convergence de tous ses elements
+problem il sont tous dependant les un des autres
+sil y a dependance il faut donc obligatoirement faire une solution iterative
+
+PROTOCOLE:
+- initialiser aleatoirement les elements de la matrice de Un
+- utiliser la methode de newton
+- voir quand il y a convergence
+
+probleme possible:
+- il y a peut etre plusieurs solutions de la suite Un
+- dans tous les cas ce nest pas grave parce qu'on cherche a determiner au moins une donnée dont le modele hesite
+
+methode de newtown avec derivation est clairement possible a condition d'utiliser de bonnes initialisation comme X€[0,1] (sil y a normalisation de limage cest ideal car on peut utiliser une initialisation normale guassienne)
+
+
+
+A SAVOIR, SIL EXISTE UNE SOLUTION UNIQUE DE RECONTRUCTION DE L'INPUT X A PARTIR DU MODELE ET DE LOUTPUT, LES DONNÉES DINPUT MEME CACHÉ PEUVENT ETRE RECONSTRUITES ENTIEREMENT. AINSI VOLER L'ARCHITECURE DUN MODELE ET ITERER SUR TOUTES LES POSSIBLITÉS DOUTPUT PERMETTRAIT (SI LA THEORIE EST BONNE) DOBTENIR LES DONNÉES DENTRAINEMENT
+
+si on part des logits il n'existe peut etre pas quune seule solution
+
+comment ameliorer un modele sans données initiales ?
+
+si on peut reconstruire les données d'entrainement en entier il serait possible avec uniquement le modele reconstruire une base de données
+
+faut il le faire couche par couche ou peut on iterer directement sur tout le modele en partant du principe dune formule  Y = Model(X)
+a priori non pas entierement
+
+voir avec brice (se souvenir qu'il va parler directement de solution multiple a cause dun systeme non lineaire a inconnues plus grande que dequqations et lui parler des pseudo inverse comme quoi cest possible)

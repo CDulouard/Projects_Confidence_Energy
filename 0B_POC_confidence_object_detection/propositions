@@ -1,0 +1,30 @@
+# y a til un plafonnement naturel ?
+# comment trouver le plafonnement des perofrmances si on emploie une methode de memoristation/forget trop courte/grande en nombre depoque 
+# la methode de plafonnement ne fonctionne pas pour le moment
+# commencer a coder la methode de memorisation/forget si pas de progression dici 5 epoques
+
+
+# problem de selection des inputs
+# verfier pourquoi loss negative en train
+#il faut avoir une memoire de ce qui a ete corrigé car il faut filtrer les meilleures predictions
+# gros potentiel damelioration par: 
+## - mask unique
+## - formule a laquelle je pense pour brice (voir lundi)
+## creer une mthode de memorisation des nouveaux label corrigés et de forget des labels a partir dun certain nombre depoque
+# dans cette premiere experience test de conformité
+# chercher la methode de convergence la plus rapide et efficace pour moins de temps de calculs
+# phase de creux qui montre potnetiellement un probleme par multi mask et probleme formule
+# a prouver : les phase de creux sur train sont potneitellemnt un desapprentissage pour un reapprentissage des labels
+
+
+PISTES DE PROGRESSION SIGNIFICATIVE:
+1- ajouter une methode de convergence sur val par epoque de modification
+3- correction de mask unique par donnée
+4- ajout d'une formule plus optimale (avec ou sans ths ?) voir avec brice
+5- ajout de la methode memorisation/forget dans l'algorithme
+6 - trouver une methode qui permette didentifier le nombre de données a corriger par epoque pour optimal ratio preformance/Temps ? 0.01% of data ?
+7- employer potentiellement des batch de 64 ou 16 plutot que 1 pour meilleur apprentissage et epoques plus rapides
+
+
+premier POC avec correction de label train
+deuxieme POC apprentissage sans labels

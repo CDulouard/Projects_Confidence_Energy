@@ -1,0 +1,63 @@
+Customised method based on entropy for DeepLearning
+
+
+1- il faut eviter le surapprentissage
+
+2- il faut pouvoir identifier les erreurs pour les corriger
+il faut identifier les erreurs avec une seule metrique sans labels
+
+
+
+defis par rapport aux autre papers
+- faire une methode simple et efficace avec de meilleures performances
+- ne pas utiliser de double modele 
+- ne pas identifier les mauvais labels des bons pour realiser une methode generalisé
+
+
+
+premier protocole:
+
+- warmup avec early stopping sur val loss
+- correction sur chaque epoque
+- early stoppping sur convergence pour reinit les poids
+- tester correction de données massives pour une convergence rapide. (risque de biais et de desapprentissage des performances)
+
+a tester:
+- vaut il mieux une convergence vers loss a chaque correction 
+- vaut il mieux deux modele plutot quune convergence de la loss (plus rapide) ?
+- vaut il mieux separer selon entropy les données peu confiantes pour plus de robustesse ?
+- vaut il mieux utiliser l'algorithme mixup
+
+promix les inconvenients:
+- besoin de deux modeles
+- possiblité de sur apprentissage
+- besoin dune methode de separation des données noisy et good
+- a un ths qui ne permet pas didentifier les bons label correctement
+
+l'avantage de ma methode V0 (premiere experience):
+- meilleure estimation de separation des données confiantes et non/confiantes
+- pas besoin de deux modeles
+- robuste vis a vis du surapprentissage
+- beaucoup moins de parametres
+
+
+
+CRITERES OBLIGATOIRE POUR GENERALISATION:
+- PAS DE DATA AUGMENTATION (DONC NI WEAK NI STRONG)
+- LE MOINS DE PARAMETRES POSSIBLES !! DONC PAS DE mixup avec des parametres lambda ! ET PAS DE THS POUR LA METRIQUE DE SEPARATION DES DONNÉES
+
+HYPOTHESES:
+- vaut il mieux des corrections massives ou iteratives ? Promix par du principe de separation entre les labelized et unlabelized
+
+
+estimer une metrique de clustering selon postion des données:
+faire deux clusters selon les données ordonnées par confidence entropie (permet de connaitre la possition moyenne entre les FAlse et les Trues) 
+ca permettra de selectionner automatiquemetn les labels a corriger en prenant comme ths la possition moyenne entre cahque données False > (cluster_False+cluster_True)/2
+METHODE NON GENERALISABLE pour des metriques continues (non boolennes) ! trouver mieux ! 
+
+
+False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,True,True,True,True,True,True,True,True,True,True,True,True,True,
+
+GMM ? permet il le clustering de valeurs continues 
+avec la GMM on a les std et les mean. Permet de connaitre le ths a 0.5 entre les deux gaussienne
+ 

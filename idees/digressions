@@ -1,0 +1,15 @@
+Les modeles ont chacun une capacité de perception propre a leur architecture
+en Active learning, la correction des données permet une sorte de biais de confirmation a travers la capacité hypothetique du modele a generaliser plus que les données specifiques
+pour eviter le plus de conditionnement possible par lui meme, il faut qu'il puisse predire sur les données sans avoir eu premierement un apprentissage sur celle ci : d'où l'idee de realiser des Kfold
+les modeles sont en capacité de pouvoir estimer statistiquement par eux meme si la predictions est confiantes ou non. Dans les modeles de notre temps, ces modeles ont intrisquement a leur apprentissage sur des données la notion d'hesitation et de certitiude vis a vis de chaque données
+fusionner des perceptions differentes permettent d'obtenir une meilleure comprehension de leur ecosysteme. lhumain percoit son environnenemnt par rapport a son conditionenemnt genetique, envirnnonemental et a travers ses sens. la genetique dun modele est son architecture, son envirnonnement sont les données assimilées dune certaine maniere. Ses sens sont ses inputs. Dou le fait que:
+- fusionner des perception differentes a travers des modeles de fusion ameliore les resultats
+- avoir le plus de données permet un meilleur conditionneemnt par rapport a son environnement et donc de meilleurs resultats
+- avoir une architecture avec un grand nombre de parametres, ameliore indirectement sa perception par l'aumgentation conseuqente de sa capacité d'apprentissage et donc d'assimilation de l'information de son environnement
+il est possible qu'il y ait une limite theorique quant a la perception de certaines architecture meme en augmentant leur capacité et le nombre de données. Parce que des données réelles peuvent etre amigües, il faut donc utiliser des techniques de desamguisation comme la technique de mixUp qui permet de percevoir des infomrations en melangeant des données. Il faudrait donc melanger les percpetions et avoir des informations toujours plus diverses sur son environnement.
+
+l'activité cerebrale des etres humains sont certainement du a une difference de potielle qui se decharge. La pensé serait conditionnée
+Mais si les etres vivants sadaptent a leur environnement et on pour buts premier la production et la procreation, cette activité cerebrale est censé etre crée de telle manière a ce que l'on nomme pensée comme une reaction logique pour interagir.
+LE cerveau serait donc optimisé pour repondre a un besoin de survie.
+Comment la nature a t elle fait pour que le chemin qui demande le moins denergie permette cette survie? 
+N y a t il pas une notion plus importante que le chemin le plus optimisé ? En effet l'effort mental et physique demande de lenergie. Si la nature etait aussi flemmarde il ny aura pas de survie possible. Quand est ce que le cerveau considere quil faut depenser de lenergie ? L'activité neuronale est elle plus qu'une simple optimisation energetique basée sur l'electrochimie ?

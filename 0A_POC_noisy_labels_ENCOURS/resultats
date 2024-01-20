@@ -1,0 +1,13 @@
+conclusions experiences:
+* besoin de 2 modeles (perte de performances sinon)
+* pas besoin de mixup (a verifier)
+* besoin de data augmentation ? (en cours de test)
+
+benchmarks:
+- sans modifications : epoque 350 (95.56%) theorique (97.30%)
+- sans MixUp:          epoque 600 (96.66%)
+- sans MixUp sans sDA: epoque 600 (95.82%)
+
+concept theorique:
+resnet18 obtient (avec des données bien labelisées) plus de 96% (il faut donc obtenir a minima ces performances)
+

@@ -1,0 +1,8 @@
+- utiliser la penalty en warmup bosst les resultats 
+- la LGA au debut ne permet pas de booster les resultats
+- la contrastive learning ameliore les resultats (directement sur l'embedding)
+
+est ce que la generalisation sans overfit permet de meilleurs resultats ?
+VOIR PROTOCOLE
+
+
